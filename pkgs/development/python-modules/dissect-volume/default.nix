@@ -12,7 +12,7 @@
 
 buildPythonPackage rec {
   pname = "dissect-volume";
-  version = "3.11";
+  version = "3.12";
   pyproject = true;
 
   disabled = pythonOlder "3.11";
@@ -21,7 +21,7 @@ buildPythonPackage rec {
     owner = "fox-it";
     repo = "dissect.volume";
     rev = "refs/tags/${version}";
-    hash = "sha256-eHIInoquuyukKuPVvVB6qtovx1NloHHVGKfFBHxVd+o=";
+    hash = "sha256-IhG2FZdCmYrGxHc2i+ERhphxP/uGgOY67epHEWnQXb0=";
   };
 
   nativeBuildInputs = [
