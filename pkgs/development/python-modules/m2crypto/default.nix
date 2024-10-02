@@ -18,8 +18,7 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.7";
 
   src = fetchPypi {
-    pname = "M2Crypto";
-    inherit version;
+    inherit pname version;
     hash = "sha256-QrYt8sr2IxYbHWQ6cjVGTC/ioxBQSevEmKbUfcCPZLQ=";
   };
 
