@@ -16,7 +16,7 @@
 buildPythonPackage rec {
   pname = "pynamodb";
   version = "6.0.1";
-  pyproject= true;
+  pyproject = true;
 
   disabled = pythonOlder "3.7";
 
