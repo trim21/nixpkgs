@@ -78,17 +78,19 @@ buildPythonPackage rec {
     "'not network'"
   ];
 
-  disabledTests = [
-    # TypeError: __subprocess_run() got an unexpected keyword argument 'umask'
-    "test_py39_arguments"
-    # AttributeError: 'module' object at __main__ has no attribute '__file__'
-    "test_nonexistent_main_module"
-    #  3 second timeout expired
-    "test_keyboardinterrupt_during_test"
-  ] ++ lib.optionals stdenv.hostPlatform.isDarwin [
-    # PermissionError: [Errno 1] Operation not permitted: '/dev/console'
-    "test_is_block_device"
-  ];
+  disabledTests =
+    [
+      # TypeError: __subprocess_run() got an unexpected keyword argument 'umask'
+      "test_py39_arguments"
+      # AttributeError: 'module' object at __main__ has no attribute '__file__'
+      "test_nonexistent_main_module"
+      #  3 second timeout expired
+      "test_keyboardinterrupt_during_test"
+    ]
+    ++ lib.optionals stdenv.hostPlatform.isDarwin [
+      # PermissionError: [Errno 1] Operation not permitted: '/dev/console'
+      "test_is_block_device"
+    ];
 
   disabledTestPaths = [
     # lots of DNS lookups
