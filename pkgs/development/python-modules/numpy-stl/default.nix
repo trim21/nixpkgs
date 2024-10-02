@@ -2,9 +2,8 @@
   lib,
   buildPythonPackage,
   cython,
-  enum34,
+  setuptools,
   fetchPypi,
-  nine,
   numpy,
   pytestCheckHook,
   python-utils,
@@ -13,17 +12,20 @@
 buildPythonPackage rec {
   pname = "numpy-stl";
   version = "3.1.2";
-  format = "setuptools";
+  pyproject = true;
 
   src = fetchPypi {
-    inherit pname version;
+    pname = "numpy_stl";
+    inherit version;
     hash = "sha256-crRpUN+jZC3xx7hzz6eKVIUzckuQdHjFZ9tC/fV+49I=";
   };
 
-  propagatedBuildInputs = [
+  build-system = [
     cython
-    enum34
-    nine
+    setuptools
+  ];
+
+  dependencies = [
     numpy
     python-utils
   ];
