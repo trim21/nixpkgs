@@ -27,8 +27,7 @@ buildPythonPackage rec {
   disabled = isPyPy;
 
   src = fetchPypi {
-    pname = "netCDF4";
-    inherit version;
+    inherit pname version;
     hash = "sha256-N9VX42ZUiJ1wIBkr+1b51fk4lMsymX64N65YbFOP17Y=";
   };
 
