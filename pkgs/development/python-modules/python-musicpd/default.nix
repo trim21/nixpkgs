@@ -8,14 +8,13 @@
 buildPythonPackage rec {
   pname = "python-musicpd";
   version = "0.9.1";
+  pyproject = true;
 
   src = fetchPypi {
-    inherit pname;
+    pname = "python_musicpd";
     inherit version;
     hash = "sha256-zKjazEIxja6/tPWFXQhEYlLd1Jl8py9wirKsoDXeGu4=";
   };
-
-  pyproject = true;
 
   build-system = [ setuptools ];
 
