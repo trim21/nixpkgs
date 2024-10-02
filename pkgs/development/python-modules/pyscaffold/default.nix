@@ -36,8 +36,7 @@ buildPythonPackage rec {
   pyproject = true;
 
   src = fetchPypi {
-    pname = "PyScaffold";
-    inherit version;
+    inherit pname version;
     hash = "sha256-QIW43pIAufMZ32+Op5lyiPFZqOSyhLBi2bKk1qnBI0w=";
   };
 
