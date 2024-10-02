@@ -18,8 +18,7 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.7";
 
   src = fetchPypi {
-    pname = "BTrees";
-    inherit version;
+    inherit pname version;
     hash = "sha256-4YdG+GQYaaIPRTKMm1+X3GxxoRlZYDVq72O3X1yNRF8=";
   };
 
