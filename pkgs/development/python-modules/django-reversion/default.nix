@@ -15,13 +15,14 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.7";
 
   src = fetchPypi {
-    inherit pname version;
+    pname = "django_reversion";
+    inherit version;
     hash = "sha256-MwmCHltvzu3M5raXXxqcf6tq58fQ4SdqkONFlG+g3Lg=";
   };
 
-  nativeBuildInputs = [ setuptools ];
+  build-system = [ setuptools ];
 
-  propagatedBuildInputs = [ django ];
+  dependencies = [ django ];
 
   # Tests assume the availability of a mysql/postgresql database
   doCheck = false;
