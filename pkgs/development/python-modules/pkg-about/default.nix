@@ -19,7 +19,8 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.7";
 
   src = fetchPypi {
-    inherit pname version;
+    pname = "pkg_about";
+    inherit version;
     extension = "zip";
     hash = "sha256-GVV3l0rU8gkxedOiMVVAt0bEqCtyO+1LSHxIKjBlbPk=";
   };
