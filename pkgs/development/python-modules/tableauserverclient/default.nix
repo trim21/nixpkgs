@@ -9,6 +9,8 @@
   requests,
   requests-mock,
   setuptools,
+  typing-extensions,
+  urllib3,
   versioneer,
 }:
 
@@ -29,7 +31,10 @@ buildPythonPackage rec {
     rm versioneer.py
   '';
 
-  pythonRelaxDeps = [ "urllib3" ];
+  pythonRelaxDeps = [
+    "defusedxml"
+    "urllib3"
+  ];
 
   nativeBuildInputs = [
     setuptools
@@ -38,8 +43,10 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [
     defusedxml
-    requests
     packaging
+    requests
+    typing-extensions
+    urllib3
   ];
 
   nativeCheckInputs = [
