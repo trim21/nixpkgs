@@ -14,8 +14,9 @@ buildPythonPackage rec {
   disabled = isPy27;
 
   src = fetchPypi {
-    inherit pname version;
-    sha256 = "sha256-amUrhHIpeRHuShD0cxb2sbbRTpJQZ9/b8otsa1Bo+bI=";
+    pname = "digi_xbee";
+    inherit version;
+    hash = "sha256-amUrhHIpeRHuShD0cxb2sbbRTpJQZ9/b8otsa1Bo+bI=";
   };
 
   propagatedBuildInputs = [
