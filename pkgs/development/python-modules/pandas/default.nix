@@ -84,17 +84,15 @@ let
         --replace-fail "numpy>=2.0" "numpy"
     '';
 
-    nativeBuildInputs =
-      [
-        cython
-        meson-python
-        meson
-        numpy
-        pkg-config
-        versioneer
-        wheel
-      ]
-      ++ versioneer.optional-dependencies.toml;
+    nativeBuildInputs = [
+      cython
+      meson-python
+      meson
+      numpy
+      pkg-config
+      versioneer
+      wheel
+    ] ++ versioneer.optional-dependencies.toml;
 
     enableParallelBuilding = true;
 
