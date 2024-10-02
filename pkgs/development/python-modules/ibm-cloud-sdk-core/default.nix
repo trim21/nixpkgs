@@ -20,7 +20,8 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.8";
 
   src = fetchPypi {
-    inherit pname version;
+    pname = "ibm_cloud_sdk_core";
+    inherit version;
     hash = "sha256-G3LvZ13f/aJbCMQ7hLi25U0rXiGvHhvT6FB6LSVxpUQ=";
   };
 
