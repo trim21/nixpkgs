@@ -16,8 +16,7 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.7";
 
   src = fetchPypi {
-    pname = "fontMath";
-    inherit version;
+    inherit pname version;
     hash = "sha256-H9kZDJ14ThMFw8SXcbkdkQ8kakt8RO3iGcmaB+167aQ=";
     extension = "zip";
   };
