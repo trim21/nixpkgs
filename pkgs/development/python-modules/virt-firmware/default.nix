@@ -16,7 +16,8 @@ buildPythonPackage rec {
   pyproject = true;
 
   src = fetchPypi {
-    inherit pname version;
+    pname = "virt_firmware";
+    inherit version;
     hash = "sha256-Rc87Nk4Sylx5/j3LVVDCNFkv8hYuyJKFptsC1kA3d78=";
   };
 
