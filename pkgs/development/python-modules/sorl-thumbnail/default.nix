@@ -16,11 +16,12 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.8";
 
   src = fetchPypi {
-    inherit pname version;
+    pname = "sorl_thumbnail";
+    inherit version;
     hash = "sha256-GRuJwn7LQLXCo1VJ1VfRfEhBxq/0ObLhe5OLke6kY7M=";
   };
 
-  nativeBuildInputs = [
+  build-system = [
     setuptools
     setuptools-scm
   ];
