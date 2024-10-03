@@ -16,13 +16,14 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.7";
 
   src = fetchPypi {
-    inherit pname version;
+    pname = "python_crontab";
+    inherit version;
     hash = "sha256-QAZ9HdOa3jRgsq2FV8dlFRTNOFHe//9hxcYOEifFw2s=";
   };
 
-  nativeBuildInputs = [ setuptools ];
+  build-system = [ setuptools ];
 
-  propagatedBuildInputs = [ python-dateutil ];
+  dependencies = [ python-dateutil ];
 
   nativeCheckInputs = [ pytestCheckHook ];
 
