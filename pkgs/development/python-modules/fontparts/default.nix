@@ -27,27 +27,17 @@ buildPythonPackage rec {
   disabled = pythonOlder "3.7";
 
   src = fetchPypi {
-    pname = "fontParts";
-    inherit version;
+    inherit pname version;
     hash = "sha256-d41ZVJOiCPITRjgGajBZh2JhnV345yPTCiTEGJzPoQ0=";
     extension = "zip";
   };
 
-  patches = [
-    (fetchpatch2 {
-      # replace remaining usage of assertEquals for Python 3.12 support
-      # https://github.com/robotools/fontParts/pull/720
-      url = "https://github.com/robotools/fontParts/commit/d7484cd98051aa1588683136da0bb99eac31523b.patch";
-      hash = "sha256-maoUgbmXY/RC4TUZI4triA9OIfB4T98qjUaQ94uhsbg=";
-    })
-  ];
-
-  nativeBuildInputs = [
+  build-system = [
     setuptools
     setuptools-scm
   ];
 
-  propagatedBuildInputs =
+  dependencies =
     [
       booleanoperations
       defcon
