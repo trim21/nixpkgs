@@ -7,8 +7,7 @@
   cmake,
   cython,
   ninja,
-  scikit-build,
-  setuptools,
+  scikit-build-core,
   numpy,
   hypothesis,
   pandas,
@@ -22,7 +21,7 @@ buildPythonPackage rec {
   version = "3.10.0";
   pyproject = true;
 
-  disabled = pythonOlder "3.8";
+  disabled = pythonOlder "3.9";
 
   src = fetchFromGitHub {
     owner = "maxbachmann";
@@ -33,7 +32,6 @@ buildPythonPackage rec {
 
   postPatch = ''
     substituteInPlace pyproject.toml \
-      --replace-fail "scikit-build~=0.18.0" "scikit-build" \
       --replace-fail "Cython >=3.0.11, <3.1.0" "Cython"
   '';
 
@@ -41,8 +39,7 @@ buildPythonPackage rec {
     cmake
     cython
     ninja
-    scikit-build
-    setuptools
+    scikit-build-core
   ];
 
   dontUseCmakeConfigure = true;
