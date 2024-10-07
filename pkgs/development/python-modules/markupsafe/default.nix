@@ -1,7 +1,7 @@
 {
   lib,
   buildPythonPackage,
-  fetchPypi,
+  fetchFromGitHub,
   pythonOlder,
 
   # build-system
@@ -19,18 +19,19 @@
 
 buildPythonPackage rec {
   pname = "markupsafe";
-  version = "2.1.5";
+  version = "3.0.0";
   pyproject = true;
 
   disabled = pythonOlder "3.8";
 
-  src = fetchPypi {
-    pname = "MarkupSafe";
-    inherit version;
-    hash = "sha256-0oPTeokLpMGuc/+t+ARkNcdue8Ike7tjwAvRpwnGVEs=";
+  src = fetchFromGitHub {
+    owner = "pallets";
+    repo = "markupsafe";
+    rev = "refs/tags/${version}";
+    hash = "sha256-7H17NndNMiDcwWcbMMzHRKyCuH9F1j30f6XF6/CzBcE=";
   };
 
-  nativeBuildInputs = [ setuptools ];
+  build-system = [ setuptools ];
 
   nativeCheckInputs = [ pytestCheckHook ];
 
