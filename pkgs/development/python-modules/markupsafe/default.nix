@@ -47,7 +47,7 @@ buildPythonPackage rec {
   };
 
   meta = with lib; {
-    changelog = "https://markupsafe.palletsprojects.com/en/${versions.majorMinor version}.x/changes/#version-${
+    changelog = "https://markupsafe.palletsprojects.com/page/changes/#version-${
       replaceStrings [ "." ] [ "-" ] version
     }";
     description = "Implements a XML/HTML/XHTML Markup safe string";
